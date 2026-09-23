@@ -1,0 +1,56 @@
+{
+  "name": "muweave",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "A local-first visual video canvas for you and your agent.",
+  "license": "MIT",
+  "packageManager": "pnpm@10.30.3",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "vite --config apps/studio/vite.config.ts",
+    "build": "vite build --config apps/studio/vite.config.ts",
+    "start": "vite preview --config apps/studio/vite.config.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "check": "pnpm typecheck && pnpm test && pnpm build",
+    "doctor": "node scripts/doctor.mjs",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "migrate:legacy": "node scripts/migrate-legacy.mjs"
+  },
+  "dependencies": {
+    "@ffmpeg/core": "0.12.10",
+    "@ffmpeg/ffmpeg": "0.12.15",
+    "fflate": "0.8.2",
+    "konva": "10.0.12",
+    "lucide-react": "0.468.0",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "zod": "4.1.12"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.58.2",
+    "@types/node": "22.19.0",
+    "@types/react": "19.2.2",
+    "@types/react-dom": "19.2.2",
+    "@vitejs/plugin-react": "4.7.0",
+    "fake-indexeddb": "6.2.4",
+    "playwright": "1.58.2",
+    "prettier": "3.6.2",
+    "sharp": "0.34.5",
+    "tsx": "4.20.6",
+    "typescript": "5.9.3",
+    "vite": "6.4.1",
+    "vitest": "3.2.4"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "sharp"
+    ]
+  }
+}

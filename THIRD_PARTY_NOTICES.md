@@ -1,0 +1,14 @@
+# Third-party notices
+
+Muweave's MIT license covers its original source and editable example. Dependency versions and transitive packages are recorded in `pnpm-lock.yaml`; their own license terms apply.
+
+- **Roboto**: SIL Open Font License 1.1. The unmodified variable font comes directly from the official [Google Fonts repository](https://github.com/google/fonts/tree/e44c4b011a820c2cbe2fd2cfa8052037d7edb571/ofl/roboto). Its original copyright and license are preserved in [OFL-Roboto.txt](apps/studio/public/fonts/OFL-Roboto.txt).
+- **Noto Sans SC**: SIL Open Font License 1.1. The unmodified Chinese variable font comes directly from the official [Google Fonts repository](https://github.com/google/fonts/tree/e44c4b011a820c2cbe2fd2cfa8052037d7edb571/ofl/notosanssc). Its original copyright and license are preserved in [OFL-NotoSansSC.txt](apps/studio/public/fonts/OFL-NotoSansSC.txt).
+- Both fonts are served locally for the editor and exports. See the [font source and license guide](licenses/README.md) and [pinned sources and checksums](apps/studio/public/fonts/SOURCES.json).
+- **React, Vite, Konva, Zod, fflate, TypeScript and related tooling**: see each installed package's LICENSE and metadata. Lucide icons retain the ISC license supplied by `lucide-react`.
+- **Sharp**: used only by development tests to create and inspect image fixtures. The application processes images through Canvas.
+- **Playwright and Chromium**: development tests use the separately installed browser provided by Playwright; the application renders in the user’s existing browser. Chromium and its dependencies retain their own notices.
+- **Native FFmpeg/FFprobe**: external executables, not included in this repository. License terms depend on the user's build, including enabled encoders. Only the development tests invoke them for independent output validation. They are not used by the application.
+- **@ffmpeg/ffmpeg 0.12.15**: the browser wrapper is MIT-licensed. **@ffmpeg/core 0.12.10**: the prebuilt single-thread WebAssembly core declares **GPL-2.0-or-later** and includes FFmpeg and external codecs. It is not covered by Muweave's MIT license. The lockfile pins these registry packages; Vite copies their unmodified core assets into the production build. See the [upstream license explanation](https://ffmpegwasm.netlify.app/docs/faq/#what-is-the-license-of-ffmpegwasm) and [upstream source/build repository](https://github.com/ffmpegwasm/ffmpeg.wasm). Before distributing a hosted or packaged build, include the applicable notices and matching corresponding source for the core and bundled libraries; this local trial has not completed that release packaging step.
+
+The repository does not include the earlier project's generated posters, narrated video, private audio, model credentials or third-party skill bundles.

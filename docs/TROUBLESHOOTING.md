@@ -1,0 +1,19 @@
+# Troubleshooting
+
+| Symptom                                   | Recovery                                                                                                                                                                                              |
+| ----------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Browser cannot save / quota reached       | Export important projects as bundles first. Use a regular browser profile with available storage; private windows and restricted profiles may not persist data. Do not clear site data before backup. |
+| Projects disappear at a different URL     | IndexedDB belongs to an origin. `localhost` and `127.0.0.1`, different ports, domains or browsers have separate stores. Return to the old URL and export/import a bundle.                             |
+| `REVISION_CONFLICT`                       | Read the latest state and reconsider the edit. Do not bypass revisions. Retry uncertain submissions only with their exact original request IDs and bodies.                                            |
+| Port 4175 is busy                         | Reuse or stop the existing Muweave preview. Choose another port with `pnpm start --port 4176`; this also changes the browser data origin.                                                             |
+| WebMCP tools disappear after refresh      | Wait for page initialization and rediscover native tools. Ordinary UI editing works without native WebMCP.                                                                                            |
+| Silent preview                            | The example has narration text but no audio file. Import and assign audio, then click Play. Text does not synthesize speech.                                                                          |
+| Asset cannot be decoded                   | Use a supported static image, font or browser-decodable audio file. Audio is converted to 48 kHz PCM WAV; decoded output also has a 100 MiB limit.                                                    |
+| A ZIP fails validation                    | Use a Muweave project bundle with `project.json` and hashed `assets/` files. Partial imports are not committed.                                                                                       |
+| Cancelled / interrupted export            | Start a new export with a fresh request ID. Refreshing or closing the owning page stops its work. Completed outputs survive a reload in the same browser.                                             |
+| WASM fails to load                        | Inspect same-origin worker / `.wasm` responses and MIME types. Serve the complete build over HTTPS or localhost. The first export downloads about 31 MiB uncompressed core resources.                 |
+| Long export is slow or runs out of memory | Shorten the project or reduce source image sizes. PNG batching is not a total-memory cap. This version has no native fallback.                                                                        |
+| Title clipped                             | Increase the text frame height, reduce font size or reflow. `project.validate` reports text overflow, not factual accuracy.                                                                           |
+| Build warning about 500 kB chunks         | The main editor currently bundles Konva. A warning alone does not mean the build failed.                                                                                                              |
+
+No backend terminal is needed to run the published site. Export diagnostics appear in the browser export dialog; inspect browser console / network errors when necessary. Remove private project content before sharing bug reports.

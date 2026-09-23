@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.DS_Store
+.env*
+!.env.example
+.muweave/
+test-results/
+playwright-report/
+coverage/
+.pnpm-store/
+*.tsbuildinfo

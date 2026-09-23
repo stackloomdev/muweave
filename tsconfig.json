@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "jsx": "react-jsx",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
+    "types": ["node", "vite/client"],
+    "baseUrl": ".",
+    "paths": {
+      "@muweave/schema": ["packages/schema/src/index.ts"],
+      "@muweave/core": ["packages/core/src/index.ts"],
+      "@muweave/renderer": ["packages/renderer/src/index.ts"],
+      "@muweave/webmcp": ["packages/webmcp/src/index.ts"]
+    }
+  },
+  "include": ["apps", "packages", "tests", "*.ts"]
+}
