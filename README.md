@@ -69,4 +69,4 @@ pnpm format:check
 
 `apps/studio` 包含浏览器 UI、存储、素材处理和导出；`packages/schema`、`core`、`renderer`、`webmcp` 提供共用数据模型、编辑逻辑、Canvas 和 Agent 接口。架构见 [ARCHITECTURE](docs/ARCHITECTURE.md)。
 
-内置字体为 Google Fonts 官方 **Roboto** 和 **Noto Sans SC**，采用 OFL 1.1，允许商用和随软件分发；字体本地加载。字体许可与来源见 [字体说明](licenses/README.md)，其他依赖及 ffmpeg.wasm 分发事项见 [第三方声明](THIRD_PARTY_NOTICES.md)。用户素材不纳入源码分发。
+内置字体为 Google Fonts 官方 **Roboto** 和 **Noto Sans SC**，采用 OFL 1.1，允许商用和随软件分发；WOFF2 字体分片按文字内容从本站加载并缓存。字体许可与来源见 [字体说明](licenses/README.md)，其他依赖及 ffmpeg.wasm 分发事项见 [第三方声明](THIRD_PARTY_NOTICES.md)。用户素材不纳入源码分发。

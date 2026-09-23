@@ -2,8 +2,8 @@
 
 Muweave's MIT license covers its original source and editable example. Dependency versions and transitive packages are recorded in `pnpm-lock.yaml`; their own license terms apply.
 
-- **Roboto**: SIL Open Font License 1.1. The unmodified variable font comes directly from the official [Google Fonts repository](https://github.com/google/fonts/tree/e44c4b011a820c2cbe2fd2cfa8052037d7edb571/ofl/roboto). Its original copyright and license are preserved in [OFL-Roboto.txt](apps/studio/public/fonts/OFL-Roboto.txt).
-- **Noto Sans SC**: SIL Open Font License 1.1. The unmodified Chinese variable font comes directly from the official [Google Fonts repository](https://github.com/google/fonts/tree/e44c4b011a820c2cbe2fd2cfa8052037d7edb571/ofl/notosanssc). Its original copyright and license are preserved in [OFL-NotoSansSC.txt](apps/studio/public/fonts/OFL-NotoSansSC.txt).
+- **Roboto**: SIL Open Font License 1.1. The unmodified WOFF2 variable-font subsets come directly from the official Google Fonts CSS API. Its original copyright and license are preserved in [OFL-Roboto.txt](apps/studio/public/fonts/OFL-Roboto.txt).
+- **Noto Sans SC**: SIL Open Font License 1.1. The unmodified Chinese WOFF2 variable-font subsets come directly from the official Google Fonts CSS API. Its original copyright and license are preserved in [OFL-NotoSansSC.txt](apps/studio/public/fonts/OFL-NotoSansSC.txt).
 - Both fonts are served locally for the editor and exports. See the [font source and license guide](licenses/README.md) and [pinned sources and checksums](apps/studio/public/fonts/SOURCES.json).
 - **React, Vite, Konva, Zod, fflate, TypeScript and related tooling**: see each installed package's LICENSE and metadata. Lucide icons retain the ISC license supplied by `lucide-react`.
 - **Sharp**: used only by development tests to create and inspect image fixtures. The application processes images through Canvas.

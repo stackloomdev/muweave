@@ -1,5 +1,11 @@
 {
   "buildCommand": "pnpm build",
   "outputDirectory": "apps/studio/dist",
-  "framework": null
+  "framework": null,
+  "headers": [
+    {
+      "source": "/fonts/woff2/:path*",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+    }
+  ]
 }

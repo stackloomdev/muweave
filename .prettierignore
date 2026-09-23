@@ -5,3 +5,4 @@ test-results
 playwright-report
 coverage
 apps/studio/public/fonts
+apps/studio/src/fonts.css
