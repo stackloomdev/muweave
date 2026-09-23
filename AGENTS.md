@@ -2,7 +2,7 @@
 
 Read `docs/EXECUTION_PLAN.md` and `docs/VALIDATION.md` for scope and current evidence. This is an independent browser-first, agent-operated visual video canvas.
 
-- All application features run in the browser. Do not reintroduce a business backend, native FFmpeg, or a headless render server. Build/test tooling and the one-time legacy migration helper are separate from application runtime.
+- All editing, storage, media processing and export features run in the browser. A stateless remote MCP adapter may transform explicitly supplied text/shape draft snapshots; it must not add account storage, media fetching or shared project/session state. Do not reintroduce a business backend, native FFmpeg, or a headless render server. Build/test tooling and the one-time legacy migration helper are separate from application runtime.
 - Preserve the split between visible content, narration, captions, and production notes.
 - UI and WebMCP use the same validated IndexedDB transaction API. Never bypass revisions, receipts, or atomic persistence.
 - Time is integer microseconds. Preview and export use the same evaluator and renderer.

@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "muweave": {
+      "type": "http",
+      "url": "https://muweave.vercel.app/api/mcp"
+    }
+  }
+}

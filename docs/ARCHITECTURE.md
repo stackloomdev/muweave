@@ -25,4 +25,10 @@ Blob URL / 下载          ffmpeg.wasm worker → MP4
 
 `packages/webmcp` 只注册浏览器原生工具，不需要 MCP 服务器。文件交接为 prepare → 选择文件 → status → import；普通浏览器无原生 WebMCP 时仍能用完整 UI。生图、配音模型不包含在网页内。
 
-开发由 Vite 提供静态资源和热更新；`pnpm start` 预览生产构建。发布只需静态 HTTPS 站点，不存在业务 HTTP API。测试里的 Node、Sharp、FFprobe/FFmpeg 是独立验收工具，不属于应用执行链路。
+开发由 Vite 提供静态资源和热更新；`pnpm start` 预览生产构建。独立网页只需静态 HTTPS 站点；ChatGPT 模式额外提供可选的无状态 MCP 函数，不引入工程数据库或媒体服务。测试里的 Node、Sharp、FFprobe/FFmpeg 是独立验收工具，不属于应用执行链路。
+
+## 远程 MCP 适配层
+
+`packages/mcp/src/drafts.ts` 复用 schema/core，将完整快照转换为新的快照；不依赖浏览器存储。`apps/mcp` 通过官方 SDK 提供 Streamable HTTP，每次请求新建并关闭 server/transport。`api/mcp.ts` 引用构建后的适配器供 Vercel 部署；唯一模块级内容是公共组件 HTML 和配置。
+
+`apps/chatgpt` 通过 MCP Apps bridge 接收工具结果，实例内保存预览状态，复用 Konva renderer。工程包用浏览器 ZIP 生成，经宿主下载；主站 `bundles.ts` 导入 ZIP 或受限的无素材 JSON，产生新的本地工程。工具结果、项目数据不进入公共组件 HTML 或 URL。能力限制、重试语义、无登录边界见 [ChatGPT 接入](CHATGPT.md)。

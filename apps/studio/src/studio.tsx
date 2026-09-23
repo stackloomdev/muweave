@@ -1748,7 +1748,7 @@ export function Studio() {
         ref={bundle}
         type="file"
         hidden
-        accept=".zip"
+        accept=".zip,.json"
         onChange={async (e) => {
           const f = e.target.files?.[0];
           e.target.value = '';

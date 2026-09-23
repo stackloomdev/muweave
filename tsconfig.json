@@ -20,5 +20,5 @@
       "@muweave/webmcp": ["packages/webmcp/src/index.ts"]
     }
   },
-  "include": ["apps", "packages", "tests", "*.ts"]
+  "include": ["apps", "packages", "tests", "*.ts", "api"]
 }

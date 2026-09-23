@@ -3,6 +3,7 @@ import { projectSchema, type Project } from '@muweave/schema';
 import { uid, DomainError } from '@muweave/core';
 import { store, sha256 } from './storage';
 import { prepareAsset } from './media';
+import { checkDraft, DRAFT_LIMITS } from '../../../packages/mcp/src/drafts';
 
 const LIMIT = 250 * 1024 * 1024;
 export async function exportBundle(p: Project, signal: AbortSignal) {
@@ -31,6 +32,18 @@ export async function exportBundle(p: Project, signal: AbortSignal) {
   });
 }
 export async function importBundle(file: Blob) {
+  if (
+    file.type === 'application/json' ||
+    (file instanceof File && file.name.toLowerCase().endsWith('.json'))
+  ) {
+    if (!file.size || file.size > DRAFT_LIMITS.bytes)
+      throw new Error('分镜 JSON 需在 0–128 KiB 之间');
+    const p = checkDraft(projectSchema.parse(JSON.parse(await file.text())));
+    p.id = uid('project');
+    p.revision = 0;
+    p.createdAt = p.updatedAt = new Date().toISOString();
+    return store.importProject(p, new Map());
+  }
   if (!file.size || file.size > LIMIT) throw new Error('工程包大小需在 0–250 MB 之间');
   let size = 0,
     rejected = false;

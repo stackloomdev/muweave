@@ -11,7 +11,7 @@
   },
   "scripts": {
     "dev": "vite --config apps/studio/vite.config.ts",
-    "build": "vite build --config apps/studio/vite.config.ts",
+    "build": "pnpm build:studio && pnpm build:mcp",
     "start": "vite preview --config apps/studio/vite.config.ts",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
@@ -20,11 +20,17 @@
     "doctor": "node scripts/doctor.mjs",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "migrate:legacy": "node scripts/migrate-legacy.mjs"
+    "migrate:legacy": "node scripts/migrate-legacy.mjs",
+    "build:studio": "vite build --config apps/studio/vite.config.ts",
+    "build:mcp": "node scripts/build-mcp.mjs",
+    "dev:mcp": "pnpm build:mcp && tsx apps/mcp/src/dev.ts",
+    "test:mcp": "vitest run tests/mcp.test.ts"
   },
   "dependencies": {
     "@ffmpeg/core": "0.12.10",
     "@ffmpeg/ffmpeg": "0.12.15",
+    "@modelcontextprotocol/ext-apps": "1.7.5",
+    "@modelcontextprotocol/sdk": "1.30.1",
     "fflate": "0.8.2",
     "konva": "10.0.12",
     "lucide-react": "0.468.0",
@@ -38,6 +44,7 @@
     "@types/react": "19.2.2",
     "@types/react-dom": "19.2.2",
     "@vitejs/plugin-react": "4.7.0",
+    "esbuild": "0.25.12",
     "fake-indexeddb": "6.2.4",
     "playwright": "1.58.2",
     "prettier": "3.6.2",

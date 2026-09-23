@@ -5,7 +5,31 @@
   "headers": [
     {
       "source": "/fonts/woff2/:path*",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        },
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
+      ]
+    },
+    {
+      "source": "/api/mcp",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, private"
+        }
+      ]
     }
-  ]
+  ],
+  "functions": {
+    "api/mcp.ts": {
+      "includeFiles": "apps/chatgpt/dist/widget.html",
+      "maxDuration": 30
+    }
+  }
 }

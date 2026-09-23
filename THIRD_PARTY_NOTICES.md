@@ -6,6 +6,7 @@ Muweave's MIT license covers its original source and editable example. Dependenc
 - **Noto Sans SC**: SIL Open Font License 1.1. The unmodified Chinese WOFF2 variable-font subsets come directly from the official Google Fonts CSS API. Its original copyright and license are preserved in [OFL-NotoSansSC.txt](apps/studio/public/fonts/OFL-NotoSansSC.txt).
 - Both fonts are served locally for the editor and exports. See the [font source and license guide](licenses/README.md) and [pinned sources and checksums](apps/studio/public/fonts/SOURCES.json).
 - **React, Vite, Konva, Zod, fflate, TypeScript and related tooling**: see each installed package's LICENSE and metadata. Lucide icons retain the ISC license supplied by `lucide-react`.
+- **MCP TypeScript SDK and MCP Apps SDK**: official Model Context Protocol libraries, MIT-licensed. The optional remote adapter and chat canvas retain dependency notices; exact versions are pinned in the lockfile.
 - **Sharp**: used only by development tests to create and inspect image fixtures. The application processes images through Canvas.
 - **Playwright and Chromium**: development tests use the separately installed browser provided by Playwright; the application renders in the user’s existing browser. Chromium and its dependencies retain their own notices.
 - **Native FFmpeg/FFprobe**: external executables, not included in this repository. License terms depend on the user's build, including enabled encoders. Only the development tests invoke them for independent output validation. They are not used by the application.
